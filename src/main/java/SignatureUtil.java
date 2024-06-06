@@ -35,7 +35,7 @@ public class SignatureUtil {
         X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(rsaPublicKey.getEncoded());
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         PublicKey publicKey = keyFactory.generatePublic(x509EncodedKeySpec);
-        Signature signature = Signature.getInstance("MD5withRSA");
+        Signature signature = Signature.getInstance("SHA256withRSA");
         signature.initVerify(publicKey);
         signature.update(src.getBytes());
         boolean bool = signature.verify(result);
